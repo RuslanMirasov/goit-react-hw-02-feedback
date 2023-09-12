@@ -13,8 +13,7 @@ class App extends Component {
     bad:0
   }
 
-  onLeaveFeedback = event => {
-    let name = event.target.name;
+  onLeaveFeedback = name => {
     this.setState(prevState => ({ [name]: prevState[name] + 1 }));
   };
 
@@ -37,7 +36,7 @@ class App extends Component {
 
         <Section title='Statistics'>
           {
-            this.countTotalFeedback() === 0 ?
+            total === 0 ?
               <Notification message='There is no feedback'></Notification> :
               <Statistics
                 good={good}
